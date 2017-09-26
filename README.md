@@ -13,9 +13,41 @@ vagrant up
 vagrant ssh
 ```
 
+## python2.7
+
+```
+sudo yum update -y
+sudo yum install -y wget
+mkdir -p /vagrant-data/tool/pip
+cd $_
+wget https://bootstrap.pypa.io/get-pip.py
+sudo python get-pip.py
+sudo pip install virtualenvwrapper
+```
+
+```
+vi ~/.bash_profile
+
+### add s
+### Virtualenvwrapper
+if [ -f /usr/bin/virtualenvwrapper.sh ]; then
+    export WORKON_HOME=$HOME/.virtualenvs
+    source /usr/bin/virtualenvwrapper.sh
+fi
+### add e
+```
+
+```
+source ~/.bash_profile
+```
+
 ## Sphinxの入れ方
 
-おいおい
+```
+
+mkvirtualenv --python=/usr/bin/python2.7 sphinx
+pip install sphinx
+```
 
 ## mkdocsの入れ方
 
