@@ -1,0 +1,9 @@
+site_name: 勉強会資料
+theme: 'material'
+#theme: 'readthedocs'
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - pymdownx.superfences
+  - pymdownx.tasklist(custom_checkbox=true)

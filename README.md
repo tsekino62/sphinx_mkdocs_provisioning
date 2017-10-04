@@ -44,11 +44,13 @@ source ~/.bash_profile
 ## Sphinxの入れ方
 
 ```
-
 mkvirtualenv --python=/usr/bin/python2.7 sphinx
 pip install sphinx
 ```
 
 ## mkdocsの入れ方
 
-おいおい
+```
+mkvirtualenv --python=/usr/bin/python2.7 mkdocs
+pip install mkdocs
+```
