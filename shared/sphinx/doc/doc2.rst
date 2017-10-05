@@ -300,6 +300,105 @@ Sphinxを入れる
 
       pip install sphinx
 
+PDF出力用の環境を作る
+------------------------------------------------
+
+1. Tex liveのインストール
+
+    .. code-block:: bash
+
+      wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
+      tar xzvf install-tl-unx.tar.gz
+      cd install-tl-20171005/
+      sudo ./install-tl
+      Loading http://ftp.jaist.ac.jp/pub/CTAN/systems/texlive/tlnet/tlpkg/texlive.tlpdb
+      Installing TeX Live 2017 from: http://ftp.jaist.ac.jp/pub/CTAN/systems/texlive/tlnet (verified)
+      Platform: x86_64-linux => 'GNU/Linux on x86_64'
+      Distribution: net  (downloading)
+      Using URL: http://ftp.jaist.ac.jp/pub/CTAN/systems/texlive/tlnet
+      Directory for temporary files: /tmp/2xZStj58ZI
+
+      ======================> TeX Live installation procedure <=====================
+
+      ======>   Letters/digits in <angle brackets> indicate   <=======
+      ======>   menu items for actions or customizations      <=======
+
+       Detected platform: GNU/Linux on x86_64
+
+       <B> set binary platforms: 1 out of 19
+
+       <S> set installation scheme: scheme-full
+
+       <C> set installation collections:
+           40 collections out of 41, disk space required: 5068 MB
+
+       <D> set directories:
+         TEXDIR (the main TeX directory):
+           /usr/local/texlive/2017
+         TEXMFLOCAL (directory for site-wide local files):
+           /usr/local/texlive/texmf-local
+         TEXMFSYSVAR (directory for variable and automatically generated data):
+           /usr/local/texlive/2017/texmf-var
+         TEXMFSYSCONFIG (directory for local config):
+           /usr/local/texlive/2017/texmf-config
+         TEXMFVAR (personal directory for variable and automatically generated data):
+           ~/.texlive2017/texmf-var
+         TEXMFCONFIG (personal directory for local config):
+           ~/.texlive2017/texmf-config
+         TEXMFHOME (directory for user-specific files):
+           ~/texmf
+
+       <O> options:
+         [ ] use letter size instead of A4 by default
+         [X] allow execution of restricted list of programs via \write18
+         [X] create all format files
+         [X] install macro/font doc tree
+         [X] install macro/font source tree
+         [ ] create symlinks to standard directories
+
+       <V> set up for portable installation
+
+      Actions:
+       <I> start installation to hard disk
+       <P> save installation profile to 'texlive.profile' and exit
+       <H> help
+       <Q> quit
+
+      Enter command: I <---Iを入力してEnter
+
+      ＜略 3501のパッケージが入る＞
+
+
+#. PATHの追加
+
+    | latexを入れた時に以下のようなメッセージが出るので、
+    | `.bashrc` などに追記する
+
+    .. code-block:: bash
+
+      Add /usr/local/texlive/2017/texmf-dist/doc/man to MANPATH.
+      Add /usr/local/texlive/2017/texmf-dist/doc/info to INFOPATH.
+      Most importantly, add /usr/local/texlive/2017/bin/x86_64-linux
+      to your PATH for current and future sessions.
+
+    .. code-block:: bash
+
+      MANPATH=$MANPATH:/usr/local/texlive/2017/texmf-dist/doc/man
+      INFOPATH=$INFOPATH:/usr/local/texlive/2017/texmf-dist/doc/info
+      PATH=$PATH:/usr/local/texlive/2017/bin/x86_64-linux
+
+#. 追記後、 `source` コマンドで読み込み
+
+    .. code-block:: bash
+
+      source ~/.bashrc
+
+#. PDF出力する
+
+    .. code-block:: bash
+
+      make latexpdf
+
 実際に使ってみる
 -------------------------------------------------
 
